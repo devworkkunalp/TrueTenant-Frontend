@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useData } from '../context/DataContext';
 import { Home, Wrench, DollarSign, Plus, Calendar, CreditCard, CheckCircle, Clock, XCircle } from 'lucide-react';
-import NewRequestModal from '../components/NewRequestModal';
-import PaymentModal from '../components/PaymentModal';
+import AddRequestModal from '../components/AddRequestModal';
+import PayRentModal from '../components/PayRentModal';
 import KYCStatusBanner from '../components/KYCStatusBanner';
 
 const TenantDashboard = () => {
@@ -183,8 +183,8 @@ const TenantDashboard = () => {
                                             <p className="text-gray-600 text-sm mb-3">{request.description}</p>
                                         </div>
                                         <div className={`p-2 rounded-lg ${request.status === 'Resolved' ? 'bg-green-100' :
-                                                request.status === 'Rejected' ? 'bg-red-100' :
-                                                    'bg-yellow-100'
+                                            request.status === 'Rejected' ? 'bg-red-100' :
+                                                'bg-yellow-100'
                                             }`}>
                                             {request.status === 'Resolved' ? (
                                                 <CheckCircle className="h-5 w-5 text-green-600" />
@@ -201,8 +201,8 @@ const TenantDashboard = () => {
                                             <span>Priority: {request.priority}</span>
                                         </div>
                                         <span className={`badge ${request.status === 'Resolved' ? 'badge-success' :
-                                                request.status === 'Rejected' ? 'badge-error' :
-                                                    'badge-warning'
+                                            request.status === 'Rejected' ? 'badge-error' :
+                                                'badge-warning'
                                             }`}>
                                             {request.status}
                                         </span>
@@ -270,13 +270,13 @@ const TenantDashboard = () => {
                 </div>
             </div>
 
-            <NewRequestModal
+            <AddRequestModal
                 isOpen={isRequestModalOpen}
                 onClose={() => setIsRequestModalOpen(false)}
                 onSubmit={addRequest}
             />
 
-            <PaymentModal
+            <PayRentModal
                 isOpen={isPaymentModalOpen}
                 onClose={() => setIsPaymentModalOpen(false)}
                 onSubmit={addPayment}
